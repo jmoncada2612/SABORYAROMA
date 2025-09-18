@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Nawindúa - Finca Agroturística y Productiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #374151;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 40vh;
+            max-height: 450px;
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #166534; /* green-800 */
+            border-bottom-color: #166534;
+        }
+        .tab-btn {
+            transition: all 0.3s;
+        }
+        .tab-btn.active {
+            background-color: #166534;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-[#FDFBF8]">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-green-800">NAWINDÚA</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#vision" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Visión</a>
+                        <a href="#pilares" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Pilares</a>
+                        <a href="#cacao" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Cacao</a>
+                        <a href="#plan" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Presupuesto</a>
+                        <a href="#finanzas" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Finanzas</a>
+                        <a href="#marketing" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Marketing</a>
+                        <a href="#impacto" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Impacto</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="vision" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 tracking-tight">
+                    Finca Agroturística Nawindúa - Inspirada en lo Ancestral
+                </h1>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
+                    Un modelo de negocio integral que fusiona la sabiduría ancestral Arhuaca con prácticas sostenibles de agroforestería, turismo cultural y economía circular, creando un proyecto resiliente y de alto valor en Lebrija, Santander.
+                </p>
+                <div class="mt-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold text-green-800">439.4 M COP</h3>
+                        <p class="mt-2 text-gray-600">Inversión total requerida para el desarrollo del proyecto.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold text-green-800">4 Flujos</h3>
+                        <p class="mt-2 text-gray-600">Diversificación de ingresos: Turismo, cacao, aguacate y ganadería caprina.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold text-green-800">10 Años</h3>
+                        <p class="mt-2 text-gray-600">Proyección financiera a largo plazo y beneficios fiscales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pilares" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Ejes Estratégicos del Proyecto</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">Nawindúa se sostiene sobre tres pilares interconectados que garantizan su sostenibilidad y rentabilidad a largo plazo.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-6 bg-white rounded-xl shadow-md">
+                        <div class="text-5xl text-green-800 text-center">🛖</div>
+                        <h3 class="mt-4 text-xl font-bold text-gray-800 text-center">Turismo Cultural y Ambiental</h3>
+                        <p class="mt-2 text-gray-600">Integración de la comunidad indígena arhuaca en la construcción y operación. Se ofrecen cabañas, camping y senderos que respetan la cosmovisión ancestral, creando una experiencia auténtica y responsable.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-md">
+                        <div class="text-5xl text-green-800 text-center">🍫</div>
+                        <h3 class="mt-4 text-xl font-bold text-gray-800 text-center">Producción de Alto Valor</h3>
+                        <p class="mt-2 text-gray-600">Cultivos de cacao 'fino y de aroma' y aguacate bajo un sistema agroforestal orgánico que enriquece el suelo. La calidad es asegurada por la fitorremediación de cadmio, un diferenciador clave para el mercado de exportación.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-md">
+                        <div class="text-5xl text-green-800 text-center">♻️</div>
+                        <h3 class="mt-4 text-xl font-bold text-gray-800 text-center">Economía Circular</h3>
+                        <p class="mt-2 text-gray-600">Sistema de producción que integra la ganadería caprina y el compostaje para transformar subproductos en abono orgánico, reduciendo costos y dependencia de insumos externos, y generando un flujo de ingresos adicional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cacao" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">El Cacao como Flujo de Ingresos Estratégico</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">El cultivo de cacao es el corazón productivo de Nawindúa. Se planea una producción de alto valor y un modelo de venta diferenciado.</p>
+                </div>
+                <div class="mt-12 max-w-4xl mx-auto">
+                    <ul role="list" class="space-y-6">
+                        <li class="relative flex gap-x-4">
+                            <div class="relative last:before:hidden before:absolute before:left-[1.375rem] before:top-8 before:h-[calc(100%-2.25rem)] before:w-px before:-translate-x-1/2 before:bg-gray-300">
+                                <div class="relative flex h-8 w-8 items-center justify-center rounded-full bg-green-800 ring-4 ring-white">
+                                    <span class="text-white">1</span>
+                                </div>
+                            </div>
+                            <div class="flex-auto py-0.5">
+                                <h4 class="font-bold text-gray-900">Cultivo y Fitorremediación</h4>
+                                <p class="text-gray-600 mt-2">Se establecen **5 hectáreas de cacao 'fino y de aroma'**, con un rendimiento proyectado de 1.5 toneladas por hectárea/año en plena producción. La estrategia de fitorremediación es clave para garantizar un producto libre de cadmio, cumpliendo con los estándares internacionales para **cacao de exportación**.</p>
+                            </div>
+                        </li>
+                        <li class="relative flex gap-x-4">
+                            <div class="relative last:before:hidden before:absolute before:left-[1.375rem] before:top-8 before:h-[calc(100%-2.25rem)] before:w-px before:-translate-x-1/2 before:bg-gray-300">
+                                <div class="relative flex h-8 w-8 items-center justify-center rounded-full bg-green-800 ring-4 ring-white">
+                                    <span class="text-white">2</span>
+                                </div>
+                            </div>
+                            <div class="flex-auto py-0.5">
+                                <h4 class="font-bold text-gray-900">Valor Agregado Agroindustrial</h4>
+                                <p class="text-gray-600 mt-2">Se reinvertirán las ganancias para desarrollar una **planta de procesamiento** que permita producir subproductos como manteca de cacao, licor de cacao, nibs, chocolates y polvo de cacao. Esto nos permite capturar un mayor margen de beneficio que la venta de grano seco.</p>
+                            </div>
+                        </li>
+                        <li class="relative flex gap-x-4">
+                            <div class="relative last:before:hidden before:absolute before:left-[1.375rem] before:top-8 before:h-[calc(100%-2.25rem)] before:w-px before:-translate-x-1/2 before:bg-gray-300">
+                                <div class="relative flex h-8 w-8 items-center justify-center rounded-full bg-green-800 ring-4 ring-white">
+                                    <span class="text-white">3</span>
+                                </div>
+                            </div>
+                            <div class="flex-auto py-0.5">
+                                <h4 class="font-bold text-gray-900">Comercialización y Exportación</h4>
+                                <p class="text-gray-600 mt-2">La producción será orientada al mercado de exportación y a la venta directa en el mercado local. Se establecerán alianzas con entidades como **Fedecacao** para facilitar la comercialización y el acceso a redes de distribución globales.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="plan" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Presupuesto y Plan de Inversión</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">Un presupuesto detallado y transparente que demuestra la asignación de fondos para cada fase del proyecto.</p>
+                </div>
+                <div class="mt-12">
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0 relative">
+                        <button class="tab-btn active w-full md:w-auto text-center px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg shadow-sm" data-tab="infraestructura">Infraestructura y Cultivos</button>
+                        <button class="tab-btn w-full md:w-auto text-center px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg shadow-sm" data-tab="recursos">Recursos Humanos y Operación</button>
+                    </div>
+                    <div id="tab-content-infraestructura" class="tab-content mt-8 bg-gray-50 p-8 rounded-lg shadow-inner">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Presupuesto de Infraestructura y Cultivos</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white rounded-lg shadow-md">
+                                <thead>
+                                    <tr>
+                                        <th class="py-3 px-6 bg-green-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item</th>
+                                        <th class="py-3 px-6 bg-green-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción</th>
+                                        <th class="py-3 px-6 bg-green-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor (COP)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Construcción de 5 cabañas turísticas</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">200,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Adecuación de 7.5ha para cultivos</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">70,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Zonas de camping y baños</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">20,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">4</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Senderos ecológicos y miradores</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">20,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">5</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Adecuación de zonas comunes y cocina</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">60,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">6</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Establecimiento de ganado caprino y área de pastoreo</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">69,427,020</td>
+                                    </tr>
+                                    <tr class="bg-green-50">
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-bold text-gray-900" colspan="2">TOTAL</td>
+                                        <td class="py-4 px-6 text-sm font-bold text-gray-900">439,427,020</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="tab-content-recursos" class="tab-content mt-8 bg-gray-50 p-8 rounded-lg shadow-inner hidden">
+                         <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Presupuesto de Recursos y Operación Anual</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white rounded-lg shadow-md">
+                                <thead>
+                                    <tr>
+                                        <th class="py-3 px-6 bg-green-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Concepto</th>
+                                        <th class="py-3 px-6 bg-green-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Costo (COP)</th>
+                                        <th class="py-3 px-6 bg-green-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Justificación</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">Salario de Empleados (2)</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">3,247,000 / mes</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Incluye salario mínimo 2025 y auxilio de transporte para dos personas.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">Gastos Operativos (Turismo)</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">1,500,000 / mes</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Servicios básicos para la operación turística (energía, internet, etc.).</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">Costos Fijos Ganadería</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">3,000,000 / mes</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Gastos de operario y mantenimiento del ganado caprino.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-medium text-gray-900">Costos de Producción (Cacao)</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">1,500,000 / mes</td>
+                                        <td class="py-4 px-6 text-sm text-gray-500">Insumos y mantenimiento para el cultivo de cacao.</td>
+                                    </tr>
+                                    <tr class="bg-green-50">
+                                        <td class="py-4 px-6 whitespace-nowrap text-sm font-bold text-gray-900">TOTAL COSTO ANUAL ESTIMADO</td>
+                                        <td class="py-4 px-6 text-sm font-bold text-gray-900">110,964,000</td>
+                                        <td class="py-4 px-6 text-sm font-bold text-gray-900">Proyección para el primer año de operación, cubriendo todos los componentes.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="finanzas" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Proyecciones Financieras</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">Análisis financiero que demuestra la rentabilidad y sostenibilidad del proyecto a 10 años, con un enfoque en la diversificación de ingresos.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <div class="lg:col-span-1 space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-green-800">
+                            <h4 class="text-sm font-semibold text-gray-500">INVERSIÓN TOTAL</h4>
+                            <p class="text-3xl font-bold text-gray-800">$439.427.020</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-green-800">
+                            <h4 class="text-sm font-semibold text-gray-500">INGRESOS AÑO 1</h4>
+                            <p class="text-3xl font-bold text-gray-800">$311.760.000</p>
+                        </div>
+                         <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-green-800">
+                            <h4 class="text-sm font-semibold text-gray-500">FLUJO NETO AÑO 1</h4>
+                            <p class="text-3xl font-bold text-gray-800">$200.796.000</p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-bold mb-4 text-center">Flujo de Caja Anual Consolidado (10 años)</h3>
+                        <div class="chart-container mx-auto">
+                            <canvas id="cashFlowChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="marketing" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Estrategia de Marketing y Posicionamiento</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">Se establecerá una marca sólida que comunique los valores del proyecto a través de canales digitales y experienciales.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-white rounded-xl shadow-md">
+                        <h4 class="text-xl font-bold text-gray-800">Posicionamiento de Marca</h4>
+                        <p class="mt-2 text-gray-600">La marca Nawindúa se posicionará como un referente de **sostenibilidad, autenticidad cultural y calidad superior**. Se destacará la herencia ancestral, las prácticas orgánicas y la trazabilidad del cacao y la leche caprina.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-md">
+                        <h4 class="text-xl font-bold text-gray-800">Canales de Comunicación</h4>
+                        <ul class="mt-2 text-gray-600 space-y-2">
+                            <li>- **Redes Sociales:** Instagram, Facebook y TikTok para compartir el día a día de la finca, la cultura Arhuaca y la transformación del cacao.</li>
+                            <li>- **Página Web:** Un sitio informativo y de reservas en línea que destaque los valores del proyecto y permita a los visitantes planificar su experiencia.</li>
+                            <li>- **Alianzas Estratégicas:** Colaboraciones con agencias de turismo de naturaleza, bloggers de viajes y organizaciones de comercio justo para ampliar el alcance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impacto" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Impacto y Sostenibilidad</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">Nawindúa genera un valor significativo para la comunidad, la economía local y el medio ambiente, puntos clave para una inversión segura y responsable.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6">
+                        <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-800 text-3xl">📈</div>
+                        <h3 class="mt-5 text-xl font-bold text-gray-800">Impacto Económico</h3>
+                        <p class="mt-2 text-gray-600">Creación de empleos directos e indirectos, diversificación económica local, y capitalización de incentivos fiscales. Se establece una operación agrícola modelo y un negocio exportador de alto valor.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-800 text-3xl">👥</div>
+                        <h3 class="mt-5 text-xl font-bold text-gray-800">Impacto Social</h3>
+                        <p class="mt-2 text-gray-600">Fortalecimiento de la comunidad Arhuaca a través de empleo digno y la valoración de sus saberes ancestrales. Promueve el diálogo intercultural y la preservación del patrimonio cultural.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-800 text-3xl">🌎</div>
+                        <h3 class="mt-5 text-xl font-bold text-gray-800">Impacto Ambiental</h3>
+                        <p class="mt-2 text-gray-600">Conservación del 70% del bosque nativo, regeneración de suelos mediante prácticas orgánicas, reducción de la huella de carbono con economía circular y protección de la biodiversidad local.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-400">
+            <p>&copy; 2025 Proyecto Nawindúa. Una iniciativa para el desarrollo sostenible en Santander, Colombia.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.tab;
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+
+                    document.getElementById(`tab-content-${target}`).classList.remove('hidden');
+                });
+            });
+
+            const cashFlowData = {
+                labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5', 'Año 6', 'Año 7', 'Año 8', 'Año 9', 'Año 10'],
+                datasets: [
+                    {
+                        label: 'Ingresos Totales',
+                        data: [311760000, 320912400, 330501720, 340416771, 350629274, 361148152, 372022097, 383210760, 394637779, 406476912],
+                        backgroundColor: 'rgba(22, 101, 52, 0.6)',
+                        borderColor: 'rgba(22, 101, 52, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Gastos Totales',
+                        data: [110964000, 114292920, 117721708, 121255369, 124892030, 128634891, 132488837, 136453402, 140537000, 144743110],
+                        backgroundColor: 'rgba(239, 68, 68, 0.6)',
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        borderWidth: 1
+                    },
+                     {
+                        label: 'Flujo de Caja Neto',
+                        data: [200796000, 206619480, 212780012, 219161402, 225737244, 232513261, 239483260, 246757358, 254240779, 261899122],
+                        backgroundColor: 'rgba(59, 130, 246, 0.6)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            };
+
+            const cashFlowCtx = document.getElementById('cashFlowChart').getContext('2d');
+            new Chart(cashFlowCtx, {
+                type: 'bar',
+                data: cashFlowData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                           position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(context.parsed.y);
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Valores en COP'
+                            }
+                        },
+                        x: {
+                             title: {
+                                display: true,
+                                text: 'Año del Proyecto'
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                }
+            });
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 70) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
